@@ -114,3 +114,28 @@
   font-size: 15px;
   text-align: center;
 }
+
+/* responsive design */
+
+@media only screen and (max-width: 768px) {
+  .container__form {
+    height: auto;
+    padding: 20px;
+  }
+
+  .container__form-div {
+    margin-bottom: 20px;
+  }
+
+  .container__form-sub {
+    gap: 10px;
+  }
+
+  .container__form-btn-return {
+    margin-right: 0;
+  }
+
+  .circle {
+    margin: 0;
+  }
+}
