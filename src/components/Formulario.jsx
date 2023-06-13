@@ -168,9 +168,13 @@ const Formulario = () => {
                 className={`form__input ${errors.phone ? " input__error" : ""}`}
                 {...register("phone", {
                   required: "This is field is requerid",
-                  maxLength: {
-                    value: 15,
-                    message: " is too long",
+                  pattern: {
+                    value: /^[\d+]+$/,
+                    message: "The phone number is not valid.",
+                  },
+                  minLength: {
+                    value: 8,
+                    message: "The phone number must have at least 8 digits.",
                   },
                 })}
               />
