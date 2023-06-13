@@ -11,9 +11,11 @@ const defaultValues = {
   birthday: "",
 };
 
+//* permite validar si es un correo correcto
 const regexEmail =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
+//* permite validar si es una url correcta
 const regexUrl = /^(ftp|http|https):\/\/[^ "]+$/i;
 
 const Formulario = () => {
@@ -28,6 +30,7 @@ const Formulario = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    //* Cambia las propiedades del objeto antes de enviarlo
     const transformedData = {
       Nombre: data.first_name,
       Apellido: data.last_name,
@@ -38,10 +41,12 @@ const Formulario = () => {
       Foto_frontal: data.front_photo,
       Foto_dorso: data.back_photo,
     };
+    //* Envía el objeto a consola
     console.log("Datos del cliente:", transformedData);
     setShowThreeForm(true);
   };
 
+  //* Al llamar a esta funcion muestra el segundo formulario.
   const firstStep = () => {
     setShowSecondForm(true);
   };
