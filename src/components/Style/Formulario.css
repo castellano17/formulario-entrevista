@@ -120,7 +120,7 @@
 @media only screen and (max-width: 768px) {
   .container__form {
     height: auto;
-    padding: 20px;
+    padding: 10px;
   }
 
   .container__form-div {
@@ -130,13 +130,14 @@
   .container__form-sub {
     gap: 10px;
     display: block;
+    width: 300px;
   }
 
   .container__form-btn-return {
     margin-right: 0;
   }
 
-  .circle {
-    margin: 0;
+  .container__form-btn-container {
+    gap: 15px;
   }
 }
