@@ -22,6 +22,7 @@ const regexUrl = /^(ftp|http|https):\/\/[^ "]+$/i;
 const Formulario = () => {
   const [showSecondForm, setShowSecondForm] = useState(false);
   const [showThreeForm, setShowThreeForm] = useState(false);
+  const [progress, setProgress] = useState(1);
 
   const {
     register,
@@ -53,6 +54,7 @@ const Formulario = () => {
         };
         //* Envía el objeto a consola
         console.log("Datos del cliente:", transformedData);
+        setProgress(3);
         setShowThreeForm(true);
       }
     });
@@ -61,10 +63,22 @@ const Formulario = () => {
   //* Al llamar a esta funcion muestra el segundo formulario.
   const firstStep = () => {
     setShowSecondForm(true);
+    setProgress(2);
   };
 
   return (
     <section className="container__form">
+      <div className="progress-bar">
+        <div
+          className={`progress-bar-circle ${progress >= 1 ? "filled" : ""}`}
+        />
+        <div
+          className={`progress-bar-circle ${progress >= 2 ? "filled" : ""}`}
+        />
+        <div
+          className={`progress-bar-circle ${progress >= 3 ? "filled" : ""}`}
+        />
+      </div>
       {!showSecondForm && !showThreeForm ? (
         <form onSubmit={handleSubmit(firstStep)}>
           <div className="container__form-div">
