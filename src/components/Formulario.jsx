@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import "./Style/Formulario.css";
+import Swal from "sweetalert2";
 
 const defaultValues = {
   first_name: "",
@@ -30,20 +31,31 @@ const Formulario = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    //* Cambia las propiedades del objeto antes de enviarlo
-    const transformedData = {
-      Nombre: data.first_name,
-      Apellido: data.last_name,
-      Email: data.email,
-      Teléfono: data.phone,
-      Url: data.url,
-      Fecha_de_Nacimiento: data.birthday,
-      Foto_frontal: data.front_photo,
-      Foto_dorso: data.back_photo,
-    };
-    //* Envía el objeto a consola
-    console.log("Datos del cliente:", transformedData);
-    setShowThreeForm(true);
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "Al dar click en: si, enviaras los datos.",
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonText: "Sí, enviar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        //* Cambia las propiedades del objeto antes de enviarlo
+        const transformedData = {
+          Nombre: data.first_name,
+          Apellido: data.last_name,
+          Email: data.email,
+          Teléfono: data.phone,
+          Url: data.url,
+          Fecha_de_Nacimiento: data.birthday,
+          Foto_frontal: data.front_photo,
+          Foto_dorso: data.back_photo,
+        };
+        //* Envía el objeto a consola
+        console.log("Datos del cliente:", transformedData);
+        setShowThreeForm(true);
+      }
+    });
   };
 
   //* Al llamar a esta funcion muestra el segundo formulario.
