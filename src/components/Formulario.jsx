@@ -215,8 +215,14 @@ const Formulario = () => {
               }`}
               {...register("front_photo", {
                 required: "This field is required",
-                validate: (value) =>
-                  value.length > 0 || "Please upload a photo",
+                validate: {
+                  fileExtension: (value) =>
+                    /(\.jpg|\.jpeg|\.png|\.gif)$/i.test(value[0].name) ||
+                    "Only image files are allowed",
+                  fileSize: (value) =>
+                    value[0].size / 1024 / 1024 < 10 ||
+                    "The image file size should be less than 10MB",
+                },
               })}
             />
             {errors.front_photo && (
@@ -235,8 +241,14 @@ const Formulario = () => {
               }`}
               {...register("back_photo", {
                 required: "This field is required",
-                validate: (value) =>
-                  value.length > 0 || "Please upload a photo",
+                validate: {
+                  fileExtension: (value) =>
+                    /(\.jpg|\.jpeg|\.png|\.gif)$/i.test(value[0].name) ||
+                    "Only image files are allowed",
+                  fileSize: (value) =>
+                    value[0].size / 1024 / 1024 < 10 ||
+                    "The image file size should be less than 10MB",
+                },
               })}
             />
             {errors.back_photo && (
