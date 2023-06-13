@@ -129,6 +129,7 @@
 
   .container__form-sub {
     gap: 10px;
+    display: block;
   }
 
   .container__form-btn-return {
