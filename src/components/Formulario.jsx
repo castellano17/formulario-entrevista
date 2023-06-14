@@ -186,10 +186,10 @@ const Formulario = () => {
                     value: /^[\d+]+$/,
                     message: "The phone number is not valid.",
                   },
-                  minLength: {
-                    value: 8,
-                    message: "The phone number must have at least 8 digits.",
-                  },
+                  // minLength: {
+                  //   value: 8,
+                  //   message: "The phone number must have at least 8 digits.",
+                  // },
                 })}
               />
               {errors.phone && (
